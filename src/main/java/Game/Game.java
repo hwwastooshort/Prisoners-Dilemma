@@ -28,8 +28,8 @@ public class Game {
         Result lastMoveP2 = Result.NONE;
 
         for (int i = 0; i < NUMBER_OF_TURNS; i++) {
-            Result currentMoveP1 = player1.strategy(lastMoveP2, i);
-            Result currentMoveP2 = player2.strategy(lastMoveP1, i);
+            Result currentMoveP1 = player1.strategy(player1Choices, player2Choices, i);
+            Result currentMoveP2 = player2.strategy(player2Choices, player1Choices, i);
 
             calculateScores(currentMoveP1, currentMoveP2);
 

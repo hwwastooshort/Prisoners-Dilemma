@@ -13,7 +13,7 @@ public class RandomStrategy implements Strategy {
                     .toList();
 
     @Override
-    public Result strategy(Result lastInput, int indexOfInput) {
+    public Result strategy(List<Result> myHistory, List<Result> opponentHistory, int indexOfInput) {
         int randomIndex = ThreadLocalRandom.current().nextInt(PLAYABLE_RESULTS.size());
         return PLAYABLE_RESULTS.get(randomIndex);
     }

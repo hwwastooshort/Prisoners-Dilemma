@@ -1,14 +1,16 @@
 package Strategies;
 
+import java.util.List;
+
 public class TitForTat implements Strategy {
     private final String name = "Tit for Tat";
 
     @Override
-    public Result strategy(Result lastInput, int indexOfInput) {
+    public Result strategy(List<Result> myHistory, List<Result> opponentHistory, int indexOfInput) {
         if (indexOfInput == 0) {
             return Result.COOPERATE;
         }
-        return lastInput;
+        return opponentHistory.get(opponentHistory.size() - 1);
     }
 
     @Override
