@@ -31,24 +31,18 @@ public class GrimTriggerTest {
         List<Result> myHistory = new ArrayList<>();
         List<Result> opponentHistory = new ArrayList<>();
 
-        // Runde 0: Beide kooperieren (Annahme)
         myHistory.add(Result.COOPERATE);
         opponentHistory.add(Result.COOPERATE);
 
-        // Runde 1: Gegner verrät
         opponentHistory.add(Result.DEFECT);
 
-        // Simuliere den Zug in Runde 1, um den Trigger auszulösen
         gt.strategy(myHistory, opponentHistory, 1);
 
-        // Ab Runde 2 muss GrimTrigger immer verraten
         for (int i = 2; i < 20; i++) {
             var expectedResult = Result.DEFECT;
-            // Der Gegner versucht jetzt zu kooperieren, um zu sehen, ob GrimTrigger verzeiht
             opponentHistory.add(Result.COOPERATE);
             var recievedResult = gt.strategy(myHistory, opponentHistory, i);
             assertEquals("Grimm Trigger must always defect after being defected once", expectedResult, recievedResult);
-            // Füge den Zug zur eigenen Historie hinzu für die nächste Iteration
             myHistory.add(recievedResult);
         }
     }
@@ -60,11 +54,9 @@ public class GrimTriggerTest {
 
         for (int i = 1; i < 20; i++) {
             var expectedResult = Result.COOPERATE;
-            // Gegner kooperiert immer
             opponentHistory.add(Result.COOPERATE);
             var recievedResult = gt.strategy(myHistory, opponentHistory, i);
             assertEquals("Grimm Trigger must always cooperate as long as it's opponent is cooperating", expectedResult, recievedResult);
-            // Füge den eigenen kooperativen Zug zur Historie hinzu
             myHistory.add(recievedResult);
         }
     }

@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         var player1 = new TitForTat();
-        var player2 = new AlwaysDefect();
+        var player2 = new TitForTat();
 
         Game game = new Game(player1, player2);
         var winner = game.run();
