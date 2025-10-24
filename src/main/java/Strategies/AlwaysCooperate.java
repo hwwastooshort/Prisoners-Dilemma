@@ -3,6 +3,7 @@ package Strategies;
 import java.util.List;
 
 public class AlwaysCooperate implements Strategy {
+    // Kooperiert immer, egal was passiert
     private final String name = "Always Cooperate";
 
     @Override

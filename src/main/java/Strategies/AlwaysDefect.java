@@ -3,6 +3,7 @@ package Strategies;
 import java.util.List;
 
 public class AlwaysDefect implements Strategy {
+    // Lehnt immer ab, egal was passiert
     private final String name = "Always Defect";
 
     @Override

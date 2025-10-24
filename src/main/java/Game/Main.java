@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-
+        // Hier kann man die beiden Strategien auswählen
         var player1 = new TitForTat();
         var player2 = new TitForTat();
 

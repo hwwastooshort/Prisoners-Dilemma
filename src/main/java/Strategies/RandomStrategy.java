@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomStrategy implements Strategy {
+    // Entscheidung ist Random 50/50
     private final String name = "Random Strategy";
 
     private static final List<Result> PLAYABLE_RESULTS =
