@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class GrimTriggerTest {
     private Strategy gt;
-    private Random random;
+    private final Random random = new Random();
 
     @Before
     public void setup() {
@@ -47,7 +47,6 @@ public class GrimTriggerTest {
     }
 
     private Result getRandomResult() {
-        random = new Random();
         int randomNumber = random.nextInt(Result.values().length - 1);
         return Result.values()[randomNumber];
     }

@@ -1,6 +1,7 @@
 package Strategies;
 
 public class TitForTat implements Strategy {
+    private final String name = "Tit for Tat";
 
     @Override
     public Result strategy(Result lastInput, int indexOfInput) {
@@ -8,5 +9,10 @@ public class TitForTat implements Strategy {
             return Result.COOPERATE;
         }
         return lastInput;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

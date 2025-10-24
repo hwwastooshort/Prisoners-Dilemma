@@ -2,10 +2,11 @@ package Strategies;
 
 public class GrimTrigger implements Strategy {
     private boolean hasBeenDefected = false;
+    private final String name = "Grimm Trigger";
 
     @Override
     public Result strategy(Result lastInput, int indexOfInput) {
-        // Grim Trigger kooperiert von Start aus und macht das so lange, bis der Gegner auch nur einmal Ablehnt.
+        // Grim Trigger kooperiert von Start aus und macht das so lange, bis der Gegner auch nur einmal ablehnt.
         // Danach lehnt Grim Trigger immer ab, egal was noch vom Gegner kommt.
         if (indexOfInput == 0) {
             return Result.COOPERATE;
@@ -19,5 +20,10 @@ public class GrimTrigger implements Strategy {
         }
 
         return Result.COOPERATE;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

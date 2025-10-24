@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomStrategy implements Strategy {
+    private final String name = "Random Strategy";
 
     private static final List<Result> PLAYABLE_RESULTS =
             Arrays.stream(Result.values())
@@ -15,5 +16,10 @@ public class RandomStrategy implements Strategy {
     public Result strategy(Result lastInput, int indexOfInput) {
         int randomIndex = ThreadLocalRandom.current().nextInt(PLAYABLE_RESULTS.size());
         return PLAYABLE_RESULTS.get(randomIndex);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }
